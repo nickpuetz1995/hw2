@@ -79,7 +79,7 @@ Role.destroy_all
 # Generate models and tables, according to the domain model.
 # TODO!
 
-#created in terminal using rails generate model table_name and added columns using t.string and t.integer in the migrate files
+#created in terminal using rails generate model table_name and added columns using t.string and t.integer in the migrate files, must run 'rails db:migrate' in terminal when beginning
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
