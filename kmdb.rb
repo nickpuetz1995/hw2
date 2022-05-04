@@ -90,25 +90,27 @@ studio["name"] = "Warner Bros."
 studio.save
 puts "Studio: #{Studio.all.count}"
 
+warner = Studio.find_by({"name" => "Warner Bros."})
+
 movie = Movie.new
 movie["title"] = "Batman Begins"
 movie["year_released"] = "2005"
 movie["rated"] = "PG-13"
-movie["studio_id"] = "1"
+movie["studio_id"] = warner["id"]
 movie.save
 
 movie = Movie.new
 movie["title"] = "The Dark Knight"
 movie["year_released"] = "2008"
 movie["rated"] = "PG-13"
-movie["studio_id"] = "1"
+movie["studio_id"] = warner["id"]
 movie.save
 
 movie = Movie.new
 movie["title"] = "The Dark Knight Rises"
 movie["year_released"] = "2012"
 movie["rated"] = "PG-13"
-movie["studio_id"] = "1"
+movie["studio_id"] = warner["id"]
 movie.save
 puts "Movie: #{Movie.all.count}"
 
@@ -158,64 +160,111 @@ actor.save
 
 puts "Actor: #{Actor.all.count}"
 
+#actor and movie id queries
+bb = Movie.find_by({"title" => "Batman Begins"})
+dk = Movie.find_by({"title" => "The Dark Knight"})
+dkr = Movie.find_by({"title" => "The Dark Knight Rises"})
+
+christian = Actor.find_by({"name" => "Christian Bale"})
+michael = Actor.find_by({"name" => "Michael Caine"})
+liam = Actor.find_by({"name" => "Liam Neeson"})
+katie = Actor.find_by({"name" => "Katie Holmes"})
+gary = Actor.find_by({"name" => "Gary Oldman"})
+heath = Actor.find_by({"name" => "Heath Ledger"})
+aaron = Actor.find_by({"name" => "Aaron Eckhart"})
+maggie = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+tom = Actor.find_by({"name" => "Tom Hardy"})
+joseph = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+anne = Actor.find_by({"name" => "Anne Hathaway"})
+
 role = Role.new
 role["character_name"] = "Bruce Wayne"
+role["movie_id"] = bb["id"]
+role["actor_id"] = christian["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Alfred"
+role["movie_id"] = bb["id"]
+role["actor_id"] = michael["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Ra's Al Ghul"
+role["movie_id"] = bb["id"]
+role["actor_id"] = liam["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Rachel Dawes"
+role["movie_id"] = bb["id"]
+role["actor_id"] = katie["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Commissioner Gordon"
+role["movie_id"] = bb["id"]
+role["actor_id"] = gary["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Bruce Wayne"
+role["movie_id"] = dk["id"]
+role["actor_id"] = christian["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Joker"
+role["movie_id"] = dk["id"]
+role["actor_id"] = heath["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Harvey Dent"
+role["movie_id"] = dk["id"]
+role["actor_id"] = aaron["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Alfred"
+role["movie_id"] = dk["id"]
+role["actor_id"] = michael["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Rachel Dawes"
+role["movie_id"] = dk["id"]
+role["actor_id"] = maggie["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Bruce Wayne"
+role["movie_id"] = dkr["id"]
+role["actor_id"] = christian["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Commissioner Gordon"
+role["movie_id"] = dkr["id"]
+role["actor_id"] = gary["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Bane"
+role["movie_id"] = dkr["id"]
+role["actor_id"] = tom["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "John Blake"
+role["movie_id"] = dkr["id"]
+role["actor_id"] = joseph["id"]
 role.save
 
 role = Role.new
 role["character_name"] = "Selina Kyle"
+role["movie_id"] = dkr["id"]
+role["actor_id"] = anne["id"]
 role.save
 
 puts "Role: #{Role.all.count}"
